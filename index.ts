@@ -32,7 +32,7 @@ import AiChatSettingsPage from "./ui/settings";
 // ─── Plugin metadata ──────────────────────────────────────────────────────────
 export const PLUGINS: PluginMeta = {
     nx:          "com.system.ai-chat",
-    name:        "ai-chat",
+    name:        "AiChat",
     version:     "1.0.0",
     description: "Floating AI chat widget powered by OpenAI-compatible APIs.",
     author:      "System",
@@ -74,21 +74,13 @@ export function register() {
             parent:   "",
             position: 85,
         },
-        {
-            key:      "ai-chat-settings",
-            label:    "Settings",
-            icon:     "solar:settings-bold",
-            slug:     "ai-chat/settings",
-            parent:   "ai-chat",
-            position: 1,
-        },
     ], PLUGINS.nx);
 
     // ─── Admin settings page ──────────────────────────────────────────────────
     // URL: /admin/ai-chat/settings
     addHook("admin.pages", [
         {
-            key:      "ai-chat/settings",
+            key:      "ai-chat",
             label:    "AI Chat Settings",
             type:     "ai-chat-settings",
             style:    "left",

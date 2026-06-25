@@ -38,7 +38,7 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
             onClick={() => onChange(!value)}
             className={`w-11 h-6 rounded-full transition-colors relative shrink-0 ${value ? "bg-emerald-500" : "bg-gray-200"}`}
         >
-            <span className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${value ? "translate-x-6" : "translate-x-1"}`} />
+            <span className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow transition-transform ${value ? "translate-x-5" : "translate-x-0"}`} />
         </button>
     );
 }
@@ -427,12 +427,7 @@ export default function AiChatSettingsPage() {
     return (
         <div className="space-y-6 max-w-3xl">
             {/* Header */}
-            <div>
-                <h1 className="text-2xl font-bold text-gray-900">AI Chat Settings</h1>
-                <p className="text-sm text-gray-500 mt-1">
-                    Configure the floating AI chat widget shown on your public site.
-                </p>
-            </div>
+            <p className="text-sm text-gray-500">Configure the floating AI chat widget shown on your public site.</p>
 
             {/* Master toggle */}
             <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm flex items-center justify-between">
