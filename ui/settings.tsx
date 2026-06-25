@@ -591,7 +591,7 @@ export default function AiChatSettingsPage() {
                         {/* Live preview */}
                         <div className="mt-2 p-4 bg-gray-50 rounded-xl border border-dashed border-gray-200">
                             <p className="text-xs text-gray-400 mb-3">Preview</p>
-                            <div className="flex items-center gap-2">
+                            <div className={`flex items-center gap-2 ${position === "left" ? "flex-row-reverse justify-end" : position === "center" ? "justify-center" : "flex-row justify-end"}`}>
                                 {bubbleText && (
                                     <span className="text-xs font-medium text-white px-3 py-1.5 rounded-full shadow-md"
                                         style={{ backgroundColor: bubbleColor }}>
