@@ -344,6 +344,8 @@ export default function AiChatSettingsPage() {
     const [apiKey,         setApiKey]          = useState("");
     const [modelName,      setModelName]       = useState("gpt-4o-mini");
     const [maxWords,       setMaxWords]        = useState("300");
+    const [bottomOffset,   setBottomOffset]    = useState("16");
+    const [sideOffset,     setSideOffset]      = useState("16");
 
     const [saving,  setSaving]  = useState(false);
     const [message, setMessage] = useState("");
@@ -365,6 +367,8 @@ export default function AiChatSettingsPage() {
         if (settings.ai_chat_api_key)        setApiKey(settings.ai_chat_api_key);
         if (settings.ai_chat_model)          setModelName(settings.ai_chat_model);
         if (settings.ai_chat_max_words)      setMaxWords(settings.ai_chat_max_words);
+        if (settings.ai_chat_bottom_offset)   setBottomOffset(settings.ai_chat_bottom_offset);
+        if (settings.ai_chat_side_offset)     setSideOffset(settings.ai_chat_side_offset);
     }, [loading, settings]);
 
     // ── Save ──────────────────────────────────────────────────────────────────
@@ -388,6 +392,8 @@ export default function AiChatSettingsPage() {
                     ai_chat_api_key:         apiKey,
                     ai_chat_model:           modelName,
                     ai_chat_max_words:       maxWords,
+                    ai_chat_bottom_offset:   bottomOffset,
+                    ai_chat_side_offset:     sideOffset,
                 }),
             });
             const data = await res.json();
@@ -495,6 +501,30 @@ export default function AiChatSettingsPage() {
                                     {opt.label}
                                 </button>
                             ))}
+                        </div>
+                    </div>
+
+                    {/* Button offset */}
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm space-y-4">
+                        <p className="text-sm font-semibold text-gray-800">Button Offset</p>
+                        <p className="text-xs text-gray-500">Distance from the edge of the screen (pixels). Same for mobile and desktop.</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <Field
+                                label="Bottom Offset (px)"
+                                hint="Distance from the bottom edge."
+                                value={bottomOffset}
+                                onChange={setBottomOffset}
+                                type="number"
+                                placeholder="16"
+                            />
+                            <Field
+                                label="Side Offset (px)"
+                                hint="Distance from the left or right edge."
+                                value={sideOffset}
+                                onChange={setSideOffset}
+                                type="number"
+                                placeholder="16"
+                            />
                         </div>
                     </div>
 
