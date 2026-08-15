@@ -26,19 +26,19 @@
  */
 
 import { addHook, type PluginMeta } from "@/hook";
-import AiChatWidget       from "./ui/chat";
+import AiChatWidget from "./ui/chat";
 import AiChatSettingsPage from "./ui/settings";
 
 // ─── Plugin metadata ──────────────────────────────────────────────────────────
 export const PLUGINS: PluginMeta = {
-    nx:          "com.system.ai-chat",
-    name:        "AiChat",
-    version:     "1.0.0",
+    nx: "ai-chat",
+    name: "AiChat",
+    version: "1.0.0",
     description: "Floating AI chat widget powered by OpenAI-compatible APIs.",
-    author:      "System",
-    path:        "https://github.com/HOTLancerX/ai-chat.git",
-    icon:        "solar:chat-round-bold",
-    color:       "from-violet-500 to-purple-600",
+    author: "System",
+    path: "https://github.com/HOTLancerX/ai-chat.git",
+    icon: "solar:chat-round-bold",
+    color: "from-violet-500 to-purple-600",
 };
 
 /**
@@ -53,13 +53,13 @@ export function register() {
     // `settings` as a prop (injected by layout.tsx).
     addHook("root.pages", [
         {
-            key:      "ai-chat-widget",
-            label:    "AI Chat Widget",
-            type:     "widget",
-            slug:     "root",
-            style:    "left",
+            key: "ai-chat-widget",
+            label: "AI Chat Widget",
+            type: "widget",
+            slug: "root",
+            style: "left",
             position: 100,
-            active:   true,
+            active: true,
             component: AiChatWidget,
         },
     ], PLUGINS.nx);
@@ -67,11 +67,11 @@ export function register() {
     // ─── Admin nav ────────────────────────────────────────────────────────────
     addHook("admin.nav", [
         {
-            key:      "ai-chat",
-            label:    "AI Chat",
-            icon:     "solar:chat-round-bold",
-            slug:     "ai-chat",
-            parent:   "",
+            key: "ai-chat",
+            label: "AI Chat",
+            icon: "solar:chat-round-bold",
+            slug: "ai-chat",
+            parent: "",
             position: 85,
         },
     ], PLUGINS.nx);
@@ -80,12 +80,12 @@ export function register() {
     // URL: /admin/ai-chat/settings
     addHook("admin.pages", [
         {
-            key:      "ai-chat",
-            label:    "AI Chat Settings",
-            type:     "ai-chat-settings",
-            style:    "left",
+            key: "ai-chat",
+            label: "AI Chat Settings",
+            type: "ai-chat-settings",
+            style: "left",
             position: 10,
-            path:     AiChatSettingsPage,
+            path: AiChatSettingsPage,
         },
     ], PLUGINS.nx);
 }
