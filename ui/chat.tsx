@@ -240,7 +240,7 @@ export default function AiChatWidget({ settings = {} }: Props) {
                     className={`
                         fixed inset-0 z-55
                         sm:inset-auto
-                        sm:w-[380px] sm:max-h-[520px]
+                        sm:w-95 sm:max-h-130
                         sm:rounded-2xl sm:shadow-2xl sm:border sm:border-gray-200
                         bg-white
                         flex flex-col overflow-hidden
